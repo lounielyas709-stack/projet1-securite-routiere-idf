@@ -1,0 +1,23 @@
+# Données (GIT-04) : récupérées par src/download.py, jamais versionnées
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Outils
+.ruff_cache/
+.streamlit/secrets.toml
+
+# Système
+.DS_Store
+Thumbs.db
