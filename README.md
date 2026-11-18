@@ -24,7 +24,7 @@ Les définitions, les colonnes utilisées et les hypothèses testées sont dans 
 | Licence | Licence Ouverte Etalab 2.0 |
 | Fichiers | caractéristiques, lieux, véhicules, usagers ; un fichier de chaque par année |
 | Périmètre retenu | Île-de-France (75, 77, 78, 91, 92, 93, 94, 95), 2019 à 2024 |
-| Date de téléchargement | à compléter au premier lancement de `src/download.py` |
+| Date de téléchargement | écrite par `src/download.py` dans `data/raw/date_telechargement.txt` |
 
 Les fichiers bruts ne sont pas versionnés. `src/download.py` les place dans `data/raw/`.
 
