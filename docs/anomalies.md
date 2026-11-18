@@ -8,7 +8,7 @@ Repérées au premier chargement des fichiers 2019-2024. Les ampleurs portent su
 - Description : le fichier avait une ligne par accident jusqu'en 2022. Il en compte 70 860 pour 54 822 accidents en 2023, et 70 248 pour 54 402 en 2024.
 - Ampleur : 31 884 lignes en trop sur 2023-2024, soit environ 23 % du fichier lieux de ces deux années.
 - Cause probable : changement de structure du producteur, à confirmer dans la notice.
-- Traitement retenu : à décider. Une jointure directe compterait certains accidents plusieurs fois.
+- Traitement retenu : une seule ligne de `lieux` par accident. La règle de choix sera fixée après lecture de la notice. Une jointure directe compterait certains accidents plusieurs fois.
 - Impact sur l'analyse : tous les indicateurs utilisant `catr`, `vma` ou `surf`, et toute évolution 2022-2023.
 
 ## ANO-02. Clé d'accident renommée en 2022
@@ -53,7 +53,7 @@ Repérées au premier chargement des fichiers 2019-2024. Les ampleurs portent su
 - Description : `grav = -1` alors que la gravité est la variable centrale.
 - Ampleur : 419 usagers (60 en 2021, 241 en 2022, 118 en 2023).
 - Cause probable : saisie incomplète.
-- Traitement retenu : à décider (exclusion probable, signalée).
+- Traitement retenu : ces usagers sont exclus du calcul des taux de gravité, et leur nombre est indiqué.
 - Impact sur l'analyse : très faible sur les taux de gravité.
 
 ## ANO-07. Coordonnées avec virgule décimale
@@ -71,7 +71,7 @@ Repérées au premier chargement des fichiers 2019-2024. Les ampleurs portent su
 - Description : valeurs supérieures à 130 km/h, qui n'existent pas sur le réseau français.
 - Ampleur : 95 lignes.
 - Cause probable : erreur de saisie.
-- Traitement retenu : à décider (exclusion de l'analyse par vitesse, signalée).
+- Traitement retenu : ces lignes sont exclues de l'analyse par vitesse, et leur nombre est indiqué.
 - Impact sur l'analyse : hypothèse H3.
 
 ## ANO-09. Années de naissance manquantes ou improbables
@@ -80,7 +80,7 @@ Repérées au premier chargement des fichiers 2019-2024. Les ampleurs portent su
 - Description : années manquantes et usagers de plus de 100 ans, avec un minimum à 1900.
 - Ampleur : 11 118 manquantes, 221 âges supérieurs à 100 ans.
 - Cause probable : saisie incomplète ou valeur par défaut.
-- Traitement retenu : à décider (seuil métier à fixer).
+- Traitement retenu : un âge supérieur à 100 ans devient une valeur manquante.
 - Impact sur l'analyse : Q4, analyse par âge.
 
 ## ANO-10. Identifiant d'usager absent en 2019 et 2020
