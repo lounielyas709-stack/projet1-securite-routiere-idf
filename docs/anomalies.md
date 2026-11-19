@@ -68,10 +68,10 @@ Repérées au premier chargement des fichiers 2019-2024. Les ampleurs portent su
 ## ANO-08. Vitesses maximales autorisées hors domaine
 
 - Colonnes concernées : `vma` (lieux)
-- Description : valeurs supérieures à 130 km/h, qui n'existent pas sur le réseau français.
-- Ampleur : 95 lignes.
+- Description : valeurs supérieures à 130 km/h, qui n'existent pas sur le réseau français, et valeurs isolées de 1 à 9 km/h, qui ne correspondent à aucune limitation de voie publique.
+- Ampleur : 95 lignes au-dessus de 130 en France. En Île-de-France, avant le traitement de ANO-01 : 21 lignes au-dessus de 130 et 151 de 1 à 9.
 - Cause probable : erreur de saisie.
-- Traitement retenu : ces lignes sont exclues de l'analyse par vitesse, et leur nombre est indiqué.
+- Traitement retenu : `vma` mise à vide hors de 10 à 130 km/h, ce qui exclut ces lignes de l'analyse par vitesse. Leur nombre est affiché au chargement.
 - Impact sur l'analyse : hypothèse H3.
 
 ## ANO-09. Années de naissance manquantes ou improbables
@@ -109,3 +109,21 @@ Repérées au premier chargement des fichiers 2019-2024. Les ampleurs portent su
 - Cause probable : confinements et baisse du trafic.
 - Traitement retenu : conservée, signalée sur chaque graphique d'évolution.
 - Impact sur l'analyse : toutes les évolutions sur 2019-2024.
+
+## ANO-13. Coordonnées hors d'Île-de-France
+
+- Colonnes concernées : `lat`, `long` (caractéristiques)
+- Description : un accident d'Aubervilliers (93) en 2019 a une latitude et une longitude égales à 11.
+- Ampleur : 1 accident.
+- Cause probable : valeur par défaut ou erreur de saisie.
+- Traitement retenu : coordonnées hors du cadre de l'Île-de-France (latitude 48,0 à 49,3, longitude 1,4 à 3,6) mises à vide.
+- Impact sur l'analyse : un point en moins sur la carte.
+
+## ANO-14. Hausse des blessés hospitalisés à Paris en 2023
+
+- Colonnes concernées : `grav` (usagers), `dep` (caractéristiques)
+- Description : à Paris, les blessés hospitalisés passent de 314 en 2022 à 428 en 2023, puis 402 en 2024, alors que les accidents baissent (5 071, 4 763 puis 4 191). La petite couronne ne connaît pas cette hausse (766, 717 puis 664 blessés hospitalisés), et les tués parisiens restent stables (38, 33 puis 31).
+- Ampleur : une centaine de blessés hospitalisés de plus par an à Paris. Le taux de gravité parisien passe de 3,2 % en 2022 à 4,5 % en 2023.
+- Cause probable : changement dans la façon d'enregistrer la gravité à Paris, à confirmer. La notice rappelle que l'indicateur « blessé hospitalisé » n'est plus labellisé depuis 2019 à cause des pratiques de saisie.
+- Traitement retenu : données conservées telles quelles. Les comparaisons dans le temps à Paris (H5) portent sur les accidents corporels et les tués, et la rupture est signalée sur tout graphique du taux de gravité parisien.
+- Impact sur l'analyse : taux de gravité de Paris en 2023 et 2024, comparaisons entre départements sur ces années, hypothèse H5.
