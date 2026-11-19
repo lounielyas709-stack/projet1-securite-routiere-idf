@@ -6,10 +6,10 @@ Repérées au premier chargement des fichiers 2019-2024. Les ampleurs portent su
 
 - Colonnes concernées : `Num_Acc` (fichier lieux)
 - Description : le fichier avait une ligne par accident jusqu'en 2022. Il en compte 70 860 pour 54 822 accidents en 2023, et 70 248 pour 54 402 en 2024.
-- Ampleur : 31 884 lignes en trop sur 2023-2024, soit environ 23 % du fichier lieux de ces deux années.
-- Cause probable : changement de structure du producteur, à confirmer dans la notice.
-- Traitement retenu : une seule ligne de `lieux` par accident. La règle de choix sera fixée après lecture de la notice. Une jointure directe compterait certains accidents plusieurs fois.
-- Impact sur l'analyse : tous les indicateurs utilisant `catr`, `vma` ou `surf`, et toute évolution 2022-2023.
+- Ampleur : 31 884 lignes en trop sur 2023-2024, soit environ 23 % du fichier lieux de ces deux années. En Île-de-France, 5 987 accidents sur 15 943 en 2023 (37 %) et 5 581 sur 15 366 en 2024 (36 %).
+- Cause probable : depuis 2023, une ligne par voie quand l'accident a lieu à une intersection. Tous les accidents IDF à plusieurs lignes sont en intersection (`int` différent de 1), contre environ 9 % de ceux à une seule ligne. La notice du 21/10/2026 décrit toujours `lieux` comme « le lieu principal de l'accident même si celui-ci s'est déroulé à une intersection » et ne mentionne pas ce changement.
+- Traitement retenu : on garde une ligne par accident, celle qui a le plus de champs renseignés (`voie`, `circ`, `nbv`, `vosp`, `prof`, `plan`, `surf`, `infra`, `situ`, `vma`), et la première du fichier en cas d'égalité. La première ligne n'est la plus renseignée que dans 76 à 77 % des cas, et il lui manque `vma` dans 1 133 accidents IDF où une autre ligne l'a. Prendre le `vma` maximum aurait favorisé la route la plus rapide de l'intersection.
+- Impact sur l'analyse : faible. `catr` ne varie jamais entre les lignes d'un même accident et `surf` dans 1 % des cas. Pour `vma`, la répartition par tranche change de moins d'un point selon la règle choisie (première ligne, maximum ou minimum). Sans ce traitement, une jointure directe compterait ces accidents deux fois ou plus.
 
 ## ANO-02. Clé d'accident renommée en 2022
 
