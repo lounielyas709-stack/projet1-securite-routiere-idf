@@ -67,6 +67,6 @@ pip install -r requirements.txt
 | Membre | Rôle | Axe d'analyse | GitHub |
 |---|---|---|---|
 | Elyas Louni | Chef de projet, chargement et nettoyage | Où | [lounielyas709-stack](https://github.com/lounielyas709-stack) |
-| Alex | à définir | à définir | |
-| David | à définir | à définir | |
-| Selyan | à définir | à définir | |
+| Alexandre Henoumont | Trame des slides | Quand | [Alexheno](https://github.com/Alexheno) |
+| David Eykerman | Tableau de bord : structure et filtres partagés | Conditions | [davideykerman14-ai](https://github.com/davideykerman14-ai) |
+| Selyan Moutawakil | Indicateurs clés du tableau de bord, relecture des PR et tags | Qui | [selyanmtl](https://github.com/selyanmtl) |
